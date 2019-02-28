@@ -1,0 +1,64 @@
+<div class="container-fluid bg-light py-3">
+    <form id="contact-form" [formGroup]="messageForm" (ngSubmit)="onSubmit()" role="form">
+  <div class="messages"></div>
+  <div class="controls">
+    <div class="row">
+      <div class="col-md-12 mx-auto">
+        <div class="card card-body">
+          <h3 class="text-center mb-4">Contact US</h3>
+          <h5 *ngIf="success">Your form is valid!</h5>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="form_name">Name *</label>
+          <input id="form_name" type="text" name="surname" class="form-control" placeholder="Please enter your name *"
+            required="required" data-error="name is required.">
+          <div class="help-block with-errors error" *ngIf="submitted && messageForm.controls.name.errors">
+              <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="form_email">Email *</label>
+          <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *"
+            required="required" data-error="Valid email is required.">
+            <div *ngIf="submitted && messageForm.controls.email.errors" class="error">
+                <div *ngIf="messageForm.controls.email.errors.required">A email is required</div>
+              </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="form_phone">Phone</label>
+          <input id="form_phone" type="tel" name="phone" class="form-control"
+            placeholder="Please enter your phone number">
+            <div *ngIf="submitted && messageForm.controls.phone.errors" class="error">
+                <div *ngIf="messageForm.controls.phone.errors.required">A phone is required</div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="form_message">Message *</label>
+        <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4"
+          required="required" data-error="send a message."></textarea>
+          <div *ngIf="submitted && messageForm.controls.message.errors" class="help-block with-errors error">
+            <div *ngIf="submitted && messageForm.controls.message.errors" class="error">
+                <div *ngIf="messageForm.controls.message.errors.required">A message is required</div>
+              </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <input type="submit" class="btn btn-warning btn-send" value="Send message">
+    </div>
+  </div>
+  </form>
+</div>

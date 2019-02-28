@@ -1,0 +1,88 @@
+<div class="container-fluid bg-light py-3">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card card-body">
+        <h3 class="text-center mb-4">Add User</h3>
+
+
+        <div class="alert alert-success" *ngIf="message">
+          <a class="close font-weight-light" data-dismiss="alert">×</a>{{message}}
+        </div>
+
+
+        <form id="contact-form" [formGroup]="userForm" (ngSubmit)="onSubmit()" role="form">
+          <fieldset>
+            <div class="form-group">
+              <input class="form-control input-lg" placeholder="Enter Name" name="name" type="text"
+                formControlName="name">
+              <div class="alert alert-danger" *ngIf="submitted && userForm.controls.name.errors">
+                <a class="close font-weight-light" data-dismiss="alert"
+                  *ngIf="userForm.controls.name.errors.required">×</a>Your Name is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <input class="form-control input-lg" placeholder="E-mail Address" name="email" type="text"
+                formControlName="email">
+
+              <div class="alert alert-danger" *ngIf="submitted && userForm.controls.email.errors">
+                <a class="close font-weight-light" data-dismiss="alert"
+                  *ngIf="userForm.controls.email.errors.required">×</a>Your Email is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <input class="form-control input-lg" placeholder="age" name="age" value="" type="text"
+                formControlName="age">
+              <div class="alert alert-danger" *ngIf="submitted && userForm.controls.age.errors">
+                <a class="close font-weight-light" data-dismiss="alert"
+                  *ngIf="userForm.controls.age.errors.required">×</a>Your Age is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <input class="form-control input-lg" placeholder="city" name="city" value="" type="text"
+                formControlName="city">
+              <div class="alert alert-danger" *ngIf="submitted && userForm.controls.name.errors">
+                <a class="close font-weight-light" data-dismiss="alert"
+                  *ngIf="userForm.controls.city.errors.required">×</a>Your City is required.
+              </div>
+            </div>
+
+
+            <input *ngIf="isNew" class="btn btn-lg btn-primary btn-block" value="Add" type="submit">
+            <input *ngIf="!isNew" class="btn btn-lg btn-primary btn-block" value="Update" type="submit">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card card-body">
+        <h3 class="text-center mb-4">User Information</h3>
+        <div class="table-responsive">
+          <table class="table">
+            <th>Name </th>
+            <th>Age</th>
+            <th>Email </th>
+            <th>City </th>
+            <th>Action</th>
+            <th>Action</th>
+
+            <tr *ngFor="let user of allUsers">
+              <td>{{user.name}}</td>
+              <td>{{user.age}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.city}}</td>
+              <td>
+                <button type="button" class="btn btn-info" matTooltip="Click Edit Button"
+                  (click)="loadUserToEdit(user._id)">Edit</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger" matTooltip="Click Delete Button"
+                  (click)="deleteUser(user._id)">Delete</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
