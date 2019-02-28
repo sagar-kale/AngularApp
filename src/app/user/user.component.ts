@@ -77,7 +77,7 @@ export class UserComponent implements OnInit {
         console.log("submitted");
       });
     } else {
-      console.log("updating existing user::: ", user);
+      console.log("updating existing user:: ", user);
       user._id = this.userIdUpdate;
       this.sampleService.updateUser(user).subscribe(data => {
         this.message = 'Record Updated Successfully';
