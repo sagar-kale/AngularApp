@@ -39,6 +39,9 @@ To add a remote, just do
 `git push -u origin master` # assuming your are on the master branch.
 
 
+## Deploy App on Firebase
+https://medium.com/@longboardcreator/deploying-angular-6-applications-to-firebase-hosting-b5dacde9c772
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
