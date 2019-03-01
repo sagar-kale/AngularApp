@@ -13,8 +13,8 @@ import { SampleComponent } from './sample.component';
 export const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'add', component: UserComponent },
-  { path: 'view', component: SampleComponent },
+  { path: 'add', component: UserComponent, resolve: { data: UserResolver } },
+  { path: 'view', component: SampleComponent, resolve: { data: UserResolver } },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
