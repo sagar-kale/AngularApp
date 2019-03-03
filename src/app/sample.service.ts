@@ -15,7 +15,8 @@ const httpOptions = {
 export class SampleService {
 
   private url = 'http://localhost:8080/jobs/all';
-  private global_url = "http://localhost:5000/user/";
+  private global_url = "http://10.161.190.42:7777/user/";
+
 
   constructor(
     private http: HttpClient) { }
@@ -27,16 +28,16 @@ export class SampleService {
     return this.http.get('https://reqres.in/api/users');
   }
   getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:5000/user/all').pipe(map((response: any) => {
+    return this.http.get<User[]>(this.global_url + 'all').pipe(map((response: any) => {
       return response.result;
     }));
   }
   addUser(user: User) {
     console.log("under service ", user)
-    return this.http.post("http://localhost:5000/user/add", user);
+    return this.http.post(this.global_url + "add", user);
   }
   getUserById(userId: string): Observable<User> {
-    return this.http.get<User>("http://localhost:5000/user/" + userId)
+    return this.http.get<User>(this.global_url"user/" + userId)
   }
   updateUser(user: User): Observable<User> {
 
