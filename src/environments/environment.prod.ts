@@ -1,12 +1,11 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "AIzaSyCHWn_kloyRs5PBIaLN82e1liAHSukToAA",
-    authDomain: "dark-hall-126111.firebaseapp.com",
-    databaseURL: "https://dark-hall-126111.firebaseio.com",
-    projectId: "dark-hall-126111",
-    storageBucket: "dark-hall-126111.appspot.com",
-    messagingSenderId: "461206088003"
-
+    apiKey: "AIzaSyDWEVGe4Wqj73QBm9kSwKWi-Fyo4DH9_6Q",
+    authDomain: "sagar-kale.firebaseapp.com",
+    databaseURL: "https://sagar-kale.firebaseio.com",
+    projectId: "sagar-kale",
+    storageBucket: "sagar-kale.appspot.com",
+    messagingSenderId: "697914539719"
   }
 };
