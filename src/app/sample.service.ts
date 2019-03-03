@@ -37,7 +37,7 @@ export class SampleService {
     return this.http.post(this.global_url + "add", user);
   }
   getUserById(userId: string): Observable<User> {
-    return this.http.get<User>(this.global_url + "user/" + userId)
+    return this.http.get<User>(this.global_url + userId)
   }
   updateUser(user: User): Observable<User> {
 

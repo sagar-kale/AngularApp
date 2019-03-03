@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   ) {
     this.createForm();
   }
-  ngOnInit(){
+  ngOnInit() {
     console.log("under logign")
   }
 
@@ -51,6 +51,12 @@ export class LoginComponent implements OnInit {
       .then(res => {
         this.router.navigate(['/home']);
       })
+  }
+  tryGithubLogin() {
+    this.authService.doGithubLogin()
+    .then(res => {
+      this.router.navigate(['/home']);
+    })
   }
 
   tryLogin(value) {

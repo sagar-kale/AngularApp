@@ -3,6 +3,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { UserService } from './user.service';
+import { resolve, reject } from 'q';
 
 @Injectable()
 export class AuthService {
@@ -14,6 +15,20 @@ export class AuthService {
   doFacebookLogin() {
     return new Promise<any>((resolve, reject) => {
       let provider = new firebase.auth.FacebookAuthProvider();
+      this.afAuth.auth
+        .signInWithPopup(provider)
+        .then(res => {
+          resolve(res);
+        }, err => {
+          console.log(err);
+          reject(err);
+        })
+    })
+  }
+
+  doGithubLogin() {
+    return new Promise<any>((resolve, reject) => {
+      let provider = new firebase.auth.GithubAuthProvider();
       this.afAuth.auth
         .signInWithPopup(provider)
         .then(res => {

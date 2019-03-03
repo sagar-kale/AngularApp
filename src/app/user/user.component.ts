@@ -53,11 +53,11 @@ export class UserComponent implements OnInit {
   }
 
   onSubmit() {
-
+    this.submitted = true;
     if (this.userForm.invalid) {
       return;
     }
-    this.createUser(this.userForm.value)
+    this.createUser(this.userForm.value);
 
   }
 
@@ -71,9 +71,7 @@ export class UserComponent implements OnInit {
         this.message = 'User Added Successfully';
         this.getAllUsers();
         console.log(res);
-        this.submitted = true;
-        this.success = true;
-        this.userForm.reset();
+        this.clearForm();
         console.log("submitted");
       });
     } else {
@@ -84,8 +82,8 @@ export class UserComponent implements OnInit {
         this.getAllUsers();
         this.userIdUpdate = null;
         this.isNew = true;
-        this.userForm.reset();
         console.log("updated user :: ", data)
+        this.clearForm();
       });
     }
   }
@@ -111,6 +109,11 @@ export class UserComponent implements OnInit {
       this.getAllUsers();
       this.message = "Record Deleted";
     })
+  }
+
+  clearForm() {
+    this.submitted = false;
+    this.userForm.reset();
   }
 
 
