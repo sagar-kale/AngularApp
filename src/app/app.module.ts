@@ -25,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
 import { LoggedNavComponent } from './logged-nav/logged-nav.component';
+import { MultilangComponent } from './multilang/multilang.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LoggedNavComponent } from './logged-nav/logged-nav.component';
     LoginComponent,
     RegisterComponent,
     UserComponent,
-    LoggedNavComponent
+    LoggedNavComponent,
+    MultilangComponent
   ],
   imports: [
     BrowserModule,
