@@ -1,3 +1,38 @@
-<p>
-  multilang works!
-</p>
+<div class="container-fluid bg-light py-3">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card card-body">
+        <h3 class="text-center mb-4">Add User</h3>
+
+
+        <div class="alert alert-success" *ngIf="message">
+          <a class="close font-weight-light" data-dismiss="alert">×</a>{{message}}
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card card-body">
+        <h3 class="text-center mb-4">Multi Lang List</h3>
+        <div class="table-responsive">
+          <table class="table">
+            <th>Name </th>
+
+            <tr *ngFor="let lang of multiLang">
+              <td>{{lang}}</td>
+              <td>
+                <button type="button" class="btn btn-info" matTooltip="Click Edit Button"
+                  (click)="loadUserToEdit(user._id)">Edit</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger" matTooltip="Click Delete Button"
+                  (click)="deleteUser(user._id)">Delete</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -9,6 +9,7 @@ import { UserResolver } from './user/user.resolver';
 import { AuthGuard } from './core/auth.guard';
 import { UserComponent } from './user/user.component';
 import { SampleComponent } from './sample.component';
+import { MultilangComponent } from './multilang/multilang.component';
 
 export const routes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -18,7 +19,8 @@ export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
-  { path: 'home', component: HomeComponent, resolve: { data: UserResolver } }
+  { path: 'home', component: HomeComponent, resolve: { data: UserResolver } },
+  { path: 'multi', component: MultilangComponent }
 ];
 
 @NgModule({

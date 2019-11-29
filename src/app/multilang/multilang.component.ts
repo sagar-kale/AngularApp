@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MultilangService } from '../multilang.service';
 
 @Component({
   selector: 'app-multilang',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MultilangComponent implements OnInit {
 
-  constructor() { }
+  multiLang = {}
+  title = "sagar";
+
+  constructor(
+    private multilangService: MultilangService
+  ) { }
 
   ngOnInit() {
+    this.multilangService.getListOfMultiLangNames(this.title).subscribe(data => {
+      console.log(data)
+      this.multiLang = data;
+    })
   }
 
 }
